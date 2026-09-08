@@ -1,11 +1,49 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-navy-950: #050c1a;
   --color-navy-900: #0a192f;
+  --color-navy-800: #112240;
   --color-navy-700: #172a45;
-  --color-navy-500: #1e3a8a;
+  --color-navy-600: #233554;
+  --color-gold-600: #b45309;
   --color-gold-500: #d97706;
+  --color-gold-400: #f59e0b;
   --color-gold-300: #fcd34d;
+  --color-tan-500: #a88a6d;
   --color-tan-400: #c2a68c;
+  --color-tan-200: #e8ded4;
+  --color-cream-100: #f5f0eb;
   --color-cream-50: #faf8f5;
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: #faf8f5;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+

@@ -1,23 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export function MobileNav({ isOpen, onClose }) {
+  const location = useLocation()
   if (!isOpen) return null
 
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/academics', label: 'Academic Programs' },
+    { path: '/gallery', label: 'Campus Gallery' },
+    { path: '/admissions', label: 'Admissions' },
+    { path: '/contact', label: 'Contact Us' },
+  ]
+
   return (
-    <div className="md:hidden bg-navy-900 text-white px-4 pt-2 pb-6 space-y-3 border-t border-navy-700">
-      <Link to="/" onClick={onClose} className="block py-2 hover:text-gold-300 transition-colors">Home</Link>
-      <Link to="/about" onClick={onClose} className="block py-2 hover:text-gold-300 transition-colors">About</Link>
-      <Link to="/academics" onClick={onClose} className="block py-2 hover:text-gold-300 transition-colors">Academics</Link>
-      <Link to="/admissions" onClick={onClose} className="block py-2 hover:text-gold-300 transition-colors">Admissions</Link>
-      <Link to="/contact" onClick={onClose} className="block py-2 hover:text-gold-300 transition-colors">Contact</Link>
-      <Link
-        to="/portal"
-        onClick={onClose}
-        className="inline-block w-full text-center px-4 py-2 mt-2 bg-gold-500 hover:bg-gold-300 text-navy-900 font-semibold rounded transition-colors"
-      >
-        Parent Portal
-      </Link>
+    <div className="md:hidden bg-navy-950 text-white px-6 pt-3 pb-6 space-y-2 border-t border-navy-800 animate-fade-in shadow-xl">
+      {navLinks.map((link) => {
+        const isActive = location.pathname === link.path
+        return (
+          <Link
+            key={link.path}
+            to={link.path}
+            onClick={onClose}
+            className={`block py-2.5 px-3 rounded-lg text-base font-semibold transition-colors ${
+              isActive
+                ? 'bg-navy-800 text-gold-300 font-bold border-l-4 border-gold-500'
+                : 'text-slate-200 hover:bg-navy-900 hover:text-gold-300'
+            }`}
+          >
+            {link.label}
+          </Link>
+        )
+      })}
     </div>
   )
 }

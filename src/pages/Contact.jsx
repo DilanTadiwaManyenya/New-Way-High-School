@@ -1,184 +1,77 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
-import Button from '../components/ui/Button'
 
 export const CONTACT_INFO_DATA = {
-  phone: '[PHONE NUMBER]',
-  email: '[EMAIL ADDRESS]',
-  address: '[PHYSICAL ADDRESS]',
-  hours: '[OFFICE HOURS PLACEHOLDER: e.g. Mon – Fri, 8:00 AM – 4:30 PM]',
-  whatsapp: '[WHATSAPP NUMBER]',
+  phone: '+263 78 491 3304',
+  address: 'New Way College Campus, Zimbabwe',
+  hours: 'Monday – Friday: 7:30 AM – 4:30 PM',
+  whatsapp: '+263 78 491 3304',
 }
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // UI placeholder for submission logic
-    console.log('Contact form submitted:', formData)
-    setSubmitted(true)
-  }
-
   return (
-    <div className="space-y-12 py-6">
+    <div className="space-y-12 py-6 animate-fade-in max-w-4xl mx-auto">
       {/* Page Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest bg-gold-500/10 text-gold-500 border border-gold-500/20 rounded-full">
+        <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-widest bg-gold-500/10 text-gold-600 border border-gold-500/20 rounded-full">
           Get In Touch
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-navy-900">
+        <h1 className="text-3xl sm:text-5xl font-black text-navy-900 tracking-tight">
           Contact New Way College
         </h1>
-        <p className="text-gray-600 text-base sm:text-lg">
-          [CONTACT OVERVIEW PLACEHOLDER: Reach out to our administrative team for inquiries, admissions, or campus visits.]
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          Reach out to our administrative office for enrollment inquiries, subject options, or campus visits.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Contact Info Sidebar */}
-        <div className="space-y-6 lg:col-span-1">
-          <Card className="bg-navy-900 text-white border border-navy-700 p-6 rounded-xl space-y-6 shadow-md">
-            <div>
-              <Badge className="bg-gold-500 text-navy-900 font-bold px-2.5 py-0.5 mb-2">
-                Information
-              </Badge>
-              <h2 className="text-xl font-bold text-white">Office Details</h2>
+      <div className="max-w-2xl mx-auto">
+        <Card className="bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 text-white border border-navy-800 p-8 sm:p-10 rounded-2xl space-y-8 shadow-xl relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl" />
+
+          <div className="text-center space-y-2">
+            <Badge className="bg-gold-500 text-navy-950 font-bold px-3.5 py-1 inline-block shadow-sm">
+              Instant Inquiry Desk
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">Contact Us via WhatsApp</h2>
+            <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+              For immediate assistance and application guidelines, connect directly with our administration on WhatsApp.
+            </p>
+          </div>
+
+          <div className="space-y-4 text-sm text-slate-200">
+            <div className="flex flex-col items-center p-5 bg-navy-800/80 rounded-xl border border-navy-700/60 shadow-inner">
+              <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Direct Phone & WhatsApp</span>
+              <p className="text-2xl font-black text-white tracking-wide">{CONTACT_INFO_DATA.phone}</p>
             </div>
 
-            <div className="space-y-4 text-sm text-gray-200">
-              <div>
-                <span className="block text-xs uppercase text-gold-300 font-semibold">Phone</span>
-                <p>{CONTACT_INFO_DATA.phone}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+              <div className="p-4 bg-navy-800/60 rounded-xl border border-navy-700/50">
+                <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Campus Location</span>
+                <p className="text-white font-medium">{CONTACT_INFO_DATA.address}</p>
               </div>
-
-              <div>
-                <span className="block text-xs uppercase text-gold-300 font-semibold">Email</span>
-                <p>{CONTACT_INFO_DATA.email}</p>
-              </div>
-
-              <div>
-                <span className="block text-xs uppercase text-gold-300 font-semibold">Address</span>
-                <p>{CONTACT_INFO_DATA.address}</p>
-              </div>
-
-              <div>
-                <span className="block text-xs uppercase text-gold-300 font-semibold">Office Hours</span>
-                <p>{CONTACT_INFO_DATA.hours}</p>
+              <div className="p-4 bg-navy-800/60 rounded-xl border border-navy-700/50">
+                <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Office Hours</span>
+                <p className="text-white font-medium">{CONTACT_INFO_DATA.hours}</p>
               </div>
             </div>
+          </div>
 
-            {/* WhatsApp CTA */}
-            <div className="pt-4 border-t border-navy-700">
-              <a
-                href={`https://wa.me/?text=Inquiry%20regarding%20New%20Way%20College`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded transition-colors space-x-2"
-              >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.127z"/>
-                </svg>
-                <span>WhatsApp Us: {CONTACT_INFO_DATA.whatsapp}</span>
-              </a>
-            </div>
-          </Card>
-        </div>
-
-        {/* Contact Form */}
-        <div className="lg:col-span-2">
-          <Card className="bg-white border border-gray-200 p-6 sm:p-8 rounded-xl shadow-sm space-y-6">
-            <div>
-              <h2 className="text-2xl font-bold text-navy-900">Send a Message</h2>
-              <p className="text-sm text-gray-500 mt-1">
-                Fill in your details below and our administration will respond promptly.
-              </p>
-            </div>
-
-            {submitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-lg text-sm">
-                Thank you for your message! [FORM SUBMISSION ACKNOWLEDGMENT PLACEHOLDER]
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold uppercase text-gray-700 mb-1">Your Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="e.g. Jane Doe"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-navy-900 text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold uppercase text-gray-700 mb-1">Email Address</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="e.g. parent@example.com"
-                      className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-navy-900 text-sm"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold uppercase text-gray-700 mb-1">Subject</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="e.g. Form 1 Admissions Inquiry"
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-navy-900 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold uppercase text-gray-700 mb-1">Message</label>
-                  <textarea
-                    name="message"
-                    rows="4"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter your message or question..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-navy-900 text-sm"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="bg-navy-900 hover:bg-navy-700 text-gold-300 font-bold px-6 py-2.5 text-sm transition-colors cursor-pointer"
-                >
-                  Send Inquiry
-                </Button>
-              </form>
-            )}
-          </Card>
-        </div>
+          {/* WhatsApp Prominent CTA Button */}
+          <div className="pt-2">
+            <a
+              href="https://wa.me/263784913304"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-full px-6 py-4 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-black text-lg rounded-xl transition-all space-x-3 shadow-lg hover:shadow-emerald-900/40 transform hover:-translate-y-0.5 border border-emerald-400/30 cursor-pointer"
+            >
+              <svg className="w-7 h-7 fill-current flex-shrink-0" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.301-1.127z"/>
+              </svg>
+              <span>Chat on WhatsApp Now</span>
+            </a>
+          </div>
+        </Card>
       </div>
     </div>
   )
