@@ -11,9 +11,12 @@ import Admissions from './pages/Admissions'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 
+import SEO from './components/ui/SEO'
+
 function App() {
   return (
     <Router>
+      <SEO />
       <div className="flex flex-col min-h-screen bg-cream-50 selection:bg-gold-500 selection:text-navy-900">
         <Navbar />
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">

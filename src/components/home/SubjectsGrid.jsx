@@ -167,7 +167,7 @@ export function SubjectsGrid({ subjects = SAMPLE_SUBJECTS }) {
             className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors cursor-pointer ${
               activeFilter === filter
                 ? 'bg-navy-900 text-gold-300 shadow-sm'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
             {filter}
@@ -180,17 +180,17 @@ export function SubjectsGrid({ subjects = SAMPLE_SUBJECTS }) {
         {filteredSubjects.map((subject) => (
           <Card
             key={subject.id}
-            className="bg-white border border-gray-200 hover:border-gold-500 transition-all flex flex-col justify-between p-5 rounded-lg shadow-sm"
+            className="bg-white border border-slate-200 hover:border-gold-500 hover:shadow-md transition-all flex flex-col justify-between p-5 rounded-lg shadow-xs"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
                 <Badge className="bg-navy-900/5 text-navy-900 font-semibold border border-navy-900/10 px-2.5 py-0.5">
                   {subject.level}
                 </Badge>
-                <span className="text-xs text-gray-500 font-medium">{subject.category}</span>
+                <span className="text-xs text-slate-500 font-medium">{subject.category}</span>
               </div>
               <h3 className="text-lg font-bold text-navy-900 mb-2">{subject.name}</h3>
-              <p className="text-sm text-gray-600">{subject.description}</p>
+              <p className="text-sm text-slate-600">{subject.description}</p>
             </div>
           </Card>
         ))}

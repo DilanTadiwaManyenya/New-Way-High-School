@@ -14,7 +14,7 @@ export function Home() {
             Comprehensive Curriculum
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900">Featured Subjects & Programs</h2>
-          <p className="text-base text-gray-600">Discover our broad range of ZIMSEC accredited Ordinary and Advanced Level subjects.</p>
+          <p className="text-base text-slate-600">Discover our broad range of ZIMSEC accredited Ordinary and Advanced Level subjects.</p>
         </div>
         <SubjectsGrid />
       </section>

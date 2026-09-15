@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import heroBgImg from '../../assets/images/IMG-20260605-WA0151.jpg'
+import heroBgImg from '../../assets/images/IMG-20260328-WA0104.jpg'
 import Button from '../ui/Button'
 
 export function HeroSection() {
