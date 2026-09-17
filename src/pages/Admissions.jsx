@@ -10,6 +10,8 @@ export const ADMISSIONS_STEPS_DATA = [
     title: 'Enquire & Visit',
     description: 'Contact our admissions desk or visit our campus to learn about available subject combinations and class intake slots.',
   },
+
+
   {
     step: 2,
     title: 'Submit Application Pack',

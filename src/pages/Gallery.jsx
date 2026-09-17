@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import img1 from '../assets/images/IMG-20251103-WA0013.jpg'
-import img2 from '../assets/images/IMG-20251103-WA0019.jpg'
-import img3 from '../assets/images/IMG-20251106-WA0055.jpg'
-import img4 from '../assets/images/IMG-20251122-WA0052.jpg'
-import img5 from '../assets/images/IMG-20251128-WA0019.jpg'
-import img6 from '../assets/images/IMG-20251220-WA0049(1).jpg'
-import img7 from '../assets/images/IMG-20251220-WA0066.jpg'
-import img8 from '../assets/images/IMG-20260201-WA0179.jpg'
-import img9 from '../assets/images/IMG-20260326-WA0098.jpg'
+import img2 from '../assets/images/image1.jpg'
+import img3 from '../assets/images/image6.jpg'
+import img4 from '../assets/images/image13.jpg'
+import img6 from '../assets/images/image17.jpeg'
+import img8 from '../assets/images/image4.jpg'
+import img9 from '../assets/images/IMG-20251103-WA0019.jpg'
 import img10 from '../assets/images/IMG-20260328-WA0073.jpg'
 import img11 from '../assets/images/IMG-20260328-WA0104.jpg'
 import img12 from '../assets/images/IMG-20260328-WA0122.jpg'
@@ -21,9 +19,9 @@ export function Gallery() {
     { src: img2, title: 'Student Engagement' },
     { src: img3, title: 'Learning Environment' },
     { src: img4, title: 'School Uniform & Crest' },
-    { src: img5, title: 'School Identity' },
+
     { src: img6, title: 'Campus Gathering' },
-    { src: img7, title: 'Student Community' },
+
     { src: img8, title: 'Academic Focus' },
     { src: img9, title: 'School Assembly' },
     { src: img10, title: 'Campus Moments' },
@@ -48,19 +46,21 @@ export function Gallery() {
       </div>
 
       {/* Responsive Masonry Image Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
         {images.map((item, idx) => (
           <div
             key={idx}
-            className="break-inside-avoid mb-5 group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+            className="mb-5 group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
             onClick={() => setSelectedImage(item)}
           >
-            <img 
-              src={item.src} 
-              alt={item.title} 
-              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
+            <div className="relative pb-[75%]">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
             {/* Subtle Overlay on Hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <div className="text-white space-y-1">

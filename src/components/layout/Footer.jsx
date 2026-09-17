@@ -71,7 +71,11 @@ export function Footer() {
             </li>
             <li className="flex items-start space-x-2">
               <span className="font-semibold text-white">Address:</span>
-              <span>New Way College Campus, Zimbabwe</span>
+              <span>1350 Dzivareskwa extension, Harare, Zimbabwe</span>
+            </li>
+            <li className="flex items-start space-x-2">
+              <span className="font-semibold text-white">Email:</span>
+              <a href="mailto:newaycollege@gmail.com" className="hover:text-gold-400 transition-colors">newaycollege@gmail.com</a>
             </li>
           </ul>
         </div>

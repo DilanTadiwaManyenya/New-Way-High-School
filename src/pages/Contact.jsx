@@ -4,9 +4,10 @@ import Badge from '../components/ui/Badge'
 
 export const CONTACT_INFO_DATA = {
   phone: '+263 78 491 3304',
-  address: 'New Way College Campus, Zimbabwe',
+  address: '1350 Dzivareskwa extension, Harare, Zimbabwe',
   hours: 'Monday – Friday: 7:30 AM – 4:30 PM',
   whatsapp: '+263 78 491 3304',
+  email: 'newaycollege@gmail.com',
 }
 
 export function Contact() {
@@ -45,10 +46,16 @@ export function Contact() {
               <p className="text-2xl font-black text-white tracking-wide">{CONTACT_INFO_DATA.phone}</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="p-4 bg-navy-800/60 rounded-xl border border-navy-700/50">
                 <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Campus Location</span>
                 <p className="text-white font-medium">{CONTACT_INFO_DATA.address}</p>
+              </div>
+              <div className="p-4 bg-navy-800/60 rounded-xl border border-navy-700/50">
+                <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Email Address</span>
+                <a href={`mailto:${CONTACT_INFO_DATA.email}`} className="text-white font-medium hover:text-gold-400 transition-colors">
+                  {CONTACT_INFO_DATA.email}
+                </a>
               </div>
               <div className="p-4 bg-navy-800/60 rounded-xl border border-navy-700/50">
                 <span className="block text-xs uppercase tracking-wider text-gold-400 font-bold mb-1">Office Hours</span>
