@@ -1,31 +1,39 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { PUBLIC_PAGES, SITE_URL } from '../../seo'
 
-const PAGE_TITLES = {
-  '/': 'Home | New Way College',
-  '/about': 'About Us | New Way College',
-  '/academics': 'Academic Programs | New Way College',
-  '/gallery': 'Campus Gallery | New Way College',
-  '/admissions': 'Admissions & Enrollment | New Way College',
-  '/contact': 'Contact Us | New Way College',
-}
-
-export function SEO({ title, description }) {
-  const location = useLocation()
-
+export default function SEO() {
+  const { pathname } = useLocation()
   useEffect(() => {
-    const currentTitle = title || PAGE_TITLES[location.pathname] || 'New Way College'
-    document.title = `${currentTitle} - Igniting Minds, Inspiring the Future`
-
-    if (description) {
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', description)
+    const path = pathname.replace(/\/+$/, '').toLowerCase() || '/'
+    const page = PUBLIC_PAGES[path]
+    document.title = page?.title || 'Page Not Found | New Way College'
+    function meta(attribute, key, content) {
+      let element = document.head.querySelector('meta[' + attribute + '="' + key + '"]')
+      if (!element) {
+        element = document.createElement('meta')
+        element.setAttribute(attribute, key)
+        document.head.append(element)
       }
+      element.setAttribute('content', content)
     }
-  }, [location, title, description])
-
+    meta('name', 'description', page?.description || 'The requested page could not be found.')
+    meta('name', 'robots', page ? 'index, follow' : 'noindex, follow')
+    meta('property', 'og:title', document.title)
+    meta('property', 'og:description', page?.description || 'The requested page could not be found.')
+    let canonical = document.head.querySelector('link[rel="canonical"]')
+    if (page) {
+      if (!canonical) {
+        canonical = document.createElement('link')
+        canonical.rel = 'canonical'
+        document.head.append(canonical)
+      }
+      canonical.href = SITE_URL + path
+      meta('property', 'og:url', SITE_URL + path)
+    } else {
+      canonical?.remove()
+      document.head.querySelector('meta[property="og:url"]')?.remove()
+    }
+  }, [pathname])
   return null
 }
-
-export default SEO
